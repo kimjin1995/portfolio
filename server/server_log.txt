@@ -1,0 +1,65 @@
+[Thu Jun 13 09:19:45 2019] Server is started.
+[Thu Jun 13 09:19:45 2019] 95673 process is forked.
+[Thu Jun 13 09:19:45 2019] idleProcessCount : 1
+[Thu Jun 13 09:19:45 2019] 95677 process is forked.
+[Thu Jun 13 09:19:45 2019] idleProcessCount : 2
+[Thu Jun 13 09:19:45 2019] 95681 process is forked.
+[Thu Jun 13 09:19:45 2019] idleProcessCount : 3
+[Thu Jun 13 09:19:45 2019] 95685 process is forked.
+[Thu Jun 13 09:19:45 2019] idleProcessCount : 4
+[Thu Jun 13 09:19:45 2019] 95689 process is forked.
+[Thu Jun 13 09:19:45 2019] idleProcessCount : 5
+==============New Client==============
+TIME : [Thu Jun 13 09:19:47 2019]
+URL : /
+IP : 127.0.0.1 
+Port : 32419
+PID : 95673
+
+[Thu Jun 13 09:19:47 2019] idleProcessCount : 4
+==============New Client==============
+TIME : [Thu Jun 13 09:19:48 2019]
+URL : /
+IP : 127.0.0.1 
+Port : 32931
+PID : 95677
+
+[Thu Jun 13 09:19:48 2019] idleProcessCount : 3
+[Thu Jun 13 09:19:48 2019] 101311 process is forked.
+[Thu Jun 13 09:19:48 2019] idleProcessCount : 4
+[Thu Jun 13 09:19:48 2019] 101315 process is forked.
+[Thu Jun 13 09:19:48 2019] idleProcessCount : 5
+==============Disconnected Client==============
+TIME : [Thu Jun 13 09:19:47 2019]
+URL : /.
+IP : 127.0.0.1 
+Port : 32419
+PID : 95673
+CONNECTING TIME : 2175(us)
+
+[Thu Jun 13 09:19:48 2019] idleProcessCount : 6
+==============Disconnected Client==============
+TIME : [Thu Jun 13 09:19:48 2019]
+URL : /.
+IP : 127.0.0.1 
+Port : 32931
+PID : 95677
+CONNECTING TIME : 1768(us)
+
+[Thu Jun 13 09:19:48 2019] idleProcessCount : 7
+[Thu Jun 13 09:19:53 2019] 95685 process is terminated.
+[Thu Jun 13 09:19:53 2019] idleProcessCount : 6
+[Thu Jun 13 09:19:53 2019] 95681 process is terminated.
+[Thu Jun 13 09:19:53 2019] idleProcessCount : 5
+
+[Thu Jun 13 09:19:56 2019] 101315 process is terminated
+[Thu Jun 13 09:19:56 2019] idleProcessCount : 4
+[Thu Jun 13 09:19:56 2019] 101311 process is terminated
+[Thu Jun 13 09:19:56 2019] idleProcessCount : 3
+[Thu Jun 13 09:19:56 2019] 95689 process is terminated
+[Thu Jun 13 09:19:56 2019] idleProcessCount : 2
+[Thu Jun 13 09:19:56 2019] 95677 process is terminated
+[Thu Jun 13 09:19:56 2019] idleProcessCount : 1
+[Thu Jun 13 09:19:56 2019] 95673 process is terminated
+[Thu Jun 13 09:19:56 2019] idleProcessCount : 0
+[Thu Jun 13 09:19:56 2019] Server is terminated
