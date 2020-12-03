@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta http-equiv="content-type" content="text/html; charset=euc-kr"/>
+    <title>MiniQ Corp</title>
+    <link href="/css/common.css" rel="stylesheet" type="text/css">
+
+    <style>
+html { overflow-y:scroll; }
+body{
+background-color: #F7FFF5;
+     background-image:url('/imgs/background.jpg');
+    background-size : cover;
+    background-repeat: no-repeat;
+   background-attachment : fixed;
+}
+ul#type1 {
+list-style:disc;
+}
+
+.invisible{
+clear:none;
+font-size:15px;
+border:0px none;
+float:none;
+color:white;
+background-color:transparent;
+display:inline;
+width:130px;
+background-color: #787878;
+color: #fff;
+text-align:left;
+}
+
+.invisiblebutton{
+font-size:15px;
+border:0px none;
+float:none;
+color:white;
+background-color:transparent;
+width:100%;
+height:100%;
+background-color: #787878;
+text-align:center;
+}
+
+
+.invisible:hover {
+	background-color: #595959;
+}
+#login{
+width:140px;
+height:25x;
+font-size:13px;
+display:inline;
+}
+
+
+#menu{
+width : 250px;
+height:60px;
+}
+li{
+  float:left;
+}
+    </style>
+
+  </head>
+  <body>
+
+<table   align="center" style="width:1700px;height:100px">
+<td>
+<section id='cssmenu' style="position:absolute;top:15px;width:450px;">
+<ul>
+   <li><a href='#'><span>   개인정보   </span></a>
+      <ul>
+         <li class='active'><a href='/users/grade'><span>성적조회</span></a></li>
+         <li class='active'><a href='/users/attend'><span>출석조회</span></a></li>
+         <li class='active'><a href='/users/check'><span>개인정보수정</span></a></li>
+      </ul>
+  </li>
+   <li class='active'><a href='/users/page/1'><span>   수강신청   </span></a></li>
+
+   <li><a href='#'><span>   장학,석차조회   </span></a>
+      <ul>
+         <li class='active'><a href='/users/scholarship'><span>장학조회</span></a></li>
+         <li class='active'><a href='/users/race'><span>석차조회</span></a></li>
+      </ul>
+  </li>
+
+   <li><a href='#'><span>   게시판   </span></a>
+      <ul>
+         <li class='active'><a href='/notice/page/1'><span>과목별 공지사항</span></a></li>
+         <li class='active'><a href='/table/page/1'><span>자유게시판</span></a></li>
+         <li class='active'><a href='/evaluate/page/1'><span>평가게시판</span></a></li>
+      </ul>
+  </li>
+</ul>
+</section>
+ <img src="/imgs/miniq.jpg" onclick="location.href='/users/screen'" style="margin-left:auto;margin-right:auto;display:block;width:10%;">
+<text style="font-size:18px;margin-left:1475px; margin-top : -50px;display:block;width:20%;"><%=logid%>(<%=logname%>)님 환영합니다</text>
+<button id="login" style="margin-left:1550px;" onclick="location.href='/users/logout'">로그아웃</button>
+</td>
+</table>
+<table  align="center" style="width:1700px;height:100px">
+<td>
+<button id="menu"class="snip1535" onclick="location.href='/users/introduce_school'">학교 소개</button>
+<button id="menu"class="snip1535" onclick="location.href='/users/introduce_major'">학부 소개</button>
+<button  id="menu"class="snip1535" onclick="location.href='/users/introduce'">교수 정보</button>
+<button  id="menu"class="snip1535" onclick="location.href='/users/enroll'">등록금납부안내</button>
+<button id="menu"class="snip1535" onclick="location.href='/users/map'">찾아오는 길</button>
+</td>
+</table>
+
+
+
+
+<br>
+<br>
+<br>
+<br><br><br><br><br><br><br>
+
+<td align="center">
+<table align="center" width="1300" border="3" >
+  <tr>
+    <td align="center">    장학 명칭 </td>
+    <td align="center">    선발 기준 및 자격 </td>
+    <td align="center">    수혜 인원 </td>
+    <td align="center">    장학금 지급 내역 </td>
+    <td align="center">    비고 </td>
+  </tr>
+  <tr>
+    <td align="center">    전액 장학금☆ </td>
+    <td align="center">    같은 학년 성적 수석 </td>
+    <td align="center">    1 명 </td>
+    <td align="center">    전액 장학금 (100% 면제) </td>
+    <td align="center">    성적 4.0 이상, <br> 전공 이수학점 15점 이상. </td>
+  </tr>
+  <tr>
+    <td align="center">    반액 장학금♡ </td>
+    <td align="center">    같은 학년 성적 수석 </td>
+    <td align="center">    1 명 </td>
+    <td align="center">    반액 장학금 (50% 면제) </td>
+    <td align="center">    성적 4.0 이상, <br> 전공 이수학점 15점 이상. </td>
+  </tr>  <tr>
+      <td align="center">    쿼터 장학금☆ </td>
+      <td align="center">    같은 학년 성적 우수자 </td>
+      <td align="center">    2 명 </td>
+      <td align="center">    1/4 장학금 (25% 면제) </td>
+      <td align="center">    성적 3.5 이상, <br> 전공 이수학점 15점 이상,<br>3~4등인 학생. </td>
+    </tr>
+
+</table>
+
+
+
+
+
+<br><br><br>
+<td align="center">
+<table align="center" width="1300" border="3" >
+<tr>
+  <td align="center">    이 름 </td>
+  <td align="center">    석 차 </td>
+  <td align="center">    학과 등록금 </td>
+  <td align="center">    등록금 면제 비율 </td>
+  <td align="center">    지불 금액 </td>
+</tr>
+
+<%
+var myMG =0;
+var myAG =0;
+var myyear =0;
+var mymajor;
+var mycollege =0;
+var myorder =1;
+var majormoney;
+var per;
+var con;
+for(var i=0; i<rows.length; i++)
+{
+var oneItem = rows[i];
+
+  if(oneItem.BaseName == logname ){
+  myMG = oneItem.SMajorAVG;
+  myAG = oneItem.SGradeAVG;
+  myyear = oneItem.SLevel;
+  mymajor = oneItem.BaseMajor;
+  majormoney = oneItem.MajorPrice;
+  }
+
+}
+
+for(var i=0; i<rows.length; i++)
+{
+  var oneItem = rows[i];
+  if(oneItem.BaseMajor == mymajor){
+    if(oneItem.SLevel==myyear){
+      mycollege++
+
+      if(oneItem.BaseName != logname ){
+        if(myAG<oneItem.SGradeAVG){
+         myorder++;
+        }
+        else if(myAG==oneItem.SGradeAVG){
+          if(myMG < oneItem.SMajorAVG) myorder++;
+        }
+      }
+    }
+  }
+}
+
+if(myorder==1){
+  per = '100%';
+  con = 0;
+}
+else if(myorder ==2){
+  per = '50%';
+  con = majormoney/2;
+}
+else if(myorder ==3 || myorder==4){
+  per ='25%';
+  con = majormoney/4;
+}
+else {
+  per = '0%';
+  con = majormoney;
+}
+%>
+  <tr>
+
+    <td align="center"><%=logname%></td>
+    <td align="center"><%=myorder%> / <%=mycollege%></td>
+    <td align="center"><%=majormoney%></td>
+    <td align="center"><%=per%></td>
+    <td align="center"><%=con%></td>
+  </tr>
+
+
+
+
+</table>
+
+<br><br><br><br><br><br><br>
+
+
+</td>
+</tr>
+
+</table>
+
+
+  </body>
+
+
+</html>

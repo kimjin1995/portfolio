@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <script src="/javascripts/jquery-3.5.1.min.js"></script>
+    <meta http-equiv="content-type" content="text/html; charset=euc-kr"/>
+    <title>MiniQ Corp</title>
+    <link href="/css/login.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+body{ 
+background-color: #F7FFF5;
+     background-image:url('/imgs/background.jpg');
+    background-size : cover;
+    background-repeat: no-repeat;
+   background-attachment : fixed;
+}
+</style>
+<body>
+
+
+
+<div class="login" align="center">
+    <form action="/users/signup" method="post">
+        <table>
+   	<input type="text" name="userName" placeholder="ID" required="required"/>
+   	<input type="password" name="password" placeholder="PW" required="required"/>
+   	<input type="text" name="name" placeholder="NAME" required="required"/>
+   	<input type="text" name="birth" placeholder="BIRTH" required="required"/>
+   	<input type="text" name="address" placeholder="ADDRESS" required="required"/>
+   	<input type="text" name="phonenum" placeholder="PHONE NUM" required="required"/>
+   	<input type="text" name="email" placeholder="E-mail" required="required"/>
+<select name = "selectBox" id = "selectBox">
+<%
+     for(var i=0; i<rows.length; i++)
+     {
+          var oneItem = rows[i];
+%>
+<option value=<%=oneItem.Major%>><%=oneItem.Major%></option>
+<%
+     }
+%>
+</select>
+
+            <fieldset>
+                <legend>개인정보공개여부</legend>
+                공개 <input type="radio" name="open" value="open" checked style="width:5%;" id="personal0"/>
+	     비공개 <input type="radio" name="open" value="closed"style="width:5%;" id="personal1" />
+            </fieldset>
+
+            <tr>
+                <td><input type="submit" value="SignUp"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+
+</body>
+</html>

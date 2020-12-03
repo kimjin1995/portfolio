@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <script src="/javascripts/jquery-3.5.1.min.js"></script>
+    <meta http-equiv="content-type" content="text/html; charset=euc-kr"/>
+    <title>MiniQ Corp</title>
+    <link href="/css/login.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+body{ 
+background-color: #F7FFF5;
+     background-image:url('/imgs/background.jpg');
+    background-size : cover;
+    background-repeat: no-repeat;
+   background-attachment : fixed;
+}
+</style>
+<body>
+
+
+<div class="login" align="center">
+    <form action="/users/login" method="post">
+	<h2>MiniQ Corp Login </h2>
+        <table>
+   	<input type="text" name="userName" placeholder="UserID" />
+        <input type="password" name="password" placeholder="Password" required="required" id="password" />
+                <td><input type="submit" value=" 로그인 " class="btn btn-primary  btn-large" id='login'></td>
+        <td> <button  class="btn btn-primary  btn-large" onclick="location.href='/users/signup' ">회원가입</button><td>
+        </table>
+    </form>
+</body>
+</html>

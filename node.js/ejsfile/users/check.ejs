@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <script src="/javascripts/jquery-3.5.1.min.js"></script>
+    <meta http-equiv="content-type" content="text/html; charset=euc-kr"/>
+    <title>MiniQ Corp</title>
+    <link href="/css/common.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+body{ 
+background-color: #F7FFF5;
+     background-image:url('/imgs/background.jpg');
+    background-size : cover;
+    background-repeat: no-repeat;
+   background-attachment : fixed;
+}
+ul#type1 {
+list-style:disc;
+}
+
+.invisible{
+clear:none;
+font-size:15px;
+border:0px none;
+float:none;
+color:white;
+background-color:transparent;
+display:inline;
+width:130px;
+background-color: #787878;
+color: #fff;
+text-align:left;
+}
+
+.invisiblebutton{
+font-size:15px;
+border:0px none;
+float:none;
+color:white;
+background-color:transparent;
+width:100%;
+height:100%;
+background-color: #787878;
+text-align:center;
+}
+
+
+.invisible:hover {
+	background-color: #595959;
+}
+
+
+
+#menu{
+width : 250px;
+height:60px;
+}
+li{
+  float:left;
+}
+</style>
+
+
+
+<body>
+
+
+
+<table  align="center" style="width:1700px;height:100px">
+<td>
+<section id='cssmenu' style="position:absolute;top:15px;width:450px;">
+<ul>
+   <li><a href='#'><span>   개인정보   </span></a>
+      <ul>
+         <li class='active'><a href='/users/grade'><span>성적조회</span></a></li>
+         <li class='active'><a href='/users/attend'><span>출석조회</span></a></li>
+         <li class='active'><a href='/users/check'><span>개인정보수정</span></a></li>
+      </ul>
+  </li>
+   <li class='active'><a href='/users/page/1'><span>   수강신청   </span></a></li>
+
+   <li><a href='#'><span>   장학,석차조회   </span></a>
+      <ul>
+         <li class='active'><a href='/users/scholarship'><span>장학조회</span></a></li>
+         <li class='active'><a href='/users/race'><span>석차조회</span></a></li>
+      </ul>
+  </li>
+
+   <li><a href='#'><span>   게시판   </span></a>
+      <ul>
+         <li class='active'><a href='/notice/page/1'><span>과목별 공지사항</span></a></li>
+         <li class='active'><a href='/table/page/1'><span>자유게시판</span></a></li>
+         <li class='active'><a href='/evaluate/page/1'><span>평가게시판</span></a></li>
+      </ul>
+  </li>
+</ul>
+</section>
+ <img src="/imgs/miniq.jpg" onclick="location.href='/users/screen'" style="margin-left:auto;margin-right:auto;display:block;width:10%;">
+<text style="font-size:18px;margin-left:1475px; margin-top : -50px;display:block;width:20%;"><%=logid%>(<%=logname%>)님 환영합니다</text>
+<button id="login" style="margin-left:1550px;" onclick="location.href='/users/logout'">로그아웃</button> 
+</td>
+</table>
+<table  align="center" style="width:1700px;height:100px">
+<td>
+
+<button id="menu"class="snip1535" onclick="location.href='/users/introduce_school'">학교 소개</button>
+<button id="menu"class="snip1535" onclick="location.href='/users/introduce_major'">학부 소개</button>
+<button  id="menu"class="snip1535" onclick="location.href='/users/introduce'">교수 정보</button>
+<button  id="menu"class="snip1535" onclick="location.href='/users/enroll'">등록금납부안내</button>
+<button id="menu"class="snip1535" onclick="location.href='/users/map'">찾아오는 길</button>
+</td>
+</table>
+<br>
+<br>
+<br>
+<br>
+<br>
+<table align="center" style="width:1700px;">
+<td>
+    <form action="/users/check" method="post">
+        <table align="center">
+<tr>
+<td>
+     	<input type="text" name = "userName" placeholder="<%=rows%>" style="width:100%;"  id = "userName"  disabled/>
+</td>
+</tr>
+<tr >
+<td align="center">
+   	<input type="password" name="password" placeholder="PW" required="required" style="width:100%;"/>
+</tr>
+</td>
+                <td align="center"><input type="submit" value="Check" onclick="location.href='/users/update' " style="width:50%;"></td>
+        </table>
+    </form>
+</td>
+</table>
+
+
+
+
+</body>
+</html>

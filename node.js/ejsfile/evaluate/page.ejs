@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">   
+    <meta http-equiv="content-type" content="text/html; charset=euc-kr"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="/css/common.css" rel="stylesheet" type="text/css">
+
+    <style>
+html { overflow-y:scroll; }
+body{
+background-color: #F7FFF5;
+     background-image:url('/imgs/background.jpg');
+    background-size : cover;
+    background-repeat: no-repeat;
+   background-attachment : fixed;
+}
+ul#type1 {
+list-style:disc;
+}
+
+.invisible{
+clear:none;
+font-size:15px;
+border:0px none;
+float:none;
+color:white;
+background-color:transparent;
+display:inline;
+width:130px;
+background-color: #787878;
+color: #fff;
+text-align:left;
+}
+
+.invisiblebutton{
+font-size:15px;
+border:0px none;
+float:none;
+color:white;
+background-color:transparent;
+width:100%;
+height:100%;
+background-color: #787878;
+text-align:center;
+}
+
+
+.invisible:hover {
+	background-color: #595959;
+}
+#login{
+width:140px;
+height:25x;
+font-size:13px;
+display:inline;
+}
+
+
+#menu{
+width : 250px;
+height:60px;
+}
+li{
+  float:left;
+}
+    </style>
+
+  </head>
+  <body>
+
+<table   align="center" style="width:1700px;height:100px">
+<td>
+<section id='cssmenu' style="position:absolute;top:15px;width:450px;">
+<ul>
+   <li><a href='#'><span>   개인정보   </span></a>
+      <ul>
+         <li class='active'><a href='/users/grade'><span>성적조회</span></a></li>
+         <li class='active'><a href='/users/attend'><span>출석조회</span></a></li>
+         <li class='active'><a href='/users/check'><span>개인정보수정</span></a></li>
+      </ul>
+  </li>
+   <li class='active'><a href='/users/page/1'><span>   수강신청   </span></a></li>
+
+   <li><a href='#'><span>   장학,석차조회   </span></a>
+      <ul>
+         <li class='active'><a href='/users/scholarship'><span>장학조회</span></a></li>
+         <li class='active'><a href='/users/race'><span>석차조회</span></a></li>
+      </ul>
+  </li>
+
+   <li><a href='#'><span>   게시판   </span></a>
+      <ul>
+         <li class='active'><a href='/notice/page/1'><span>과목별 공지사항</span></a></li>
+         <li class='active'><a href='/table/page/1'><span>자유게시판</span></a></li>
+         <li class='active'><a href='/evaluate/page/1'><span>평가게시판</span></a></li>
+      </ul>
+  </li>
+</ul>
+</section>
+ <img src="/imgs/miniq.jpg" onclick="location.href='/users/screen'" style="margin-left:auto;margin-right:auto;display:block;width:10%;">
+<text style="font-size:18px;margin-left:1475px; margin-top : -50px;display:block;width:20%;"><%=logid%>(<%=logname%>)님 환영합니다</text>
+<button id="login" style="margin-left:1550px;" onclick="location.href='/users/logout'">로그아웃</button>
+</td>
+</table>
+<table  align="center" style="width:1700px;height:100px">
+<td>
+
+<button id="menu"class="snip1535" onclick="location.href='/users/introduce_school'">학교 소개</button>
+<button id="menu"class="snip1535" onclick="location.href='/users/introduce_major'">학부 소개</button>
+<button  id="menu"class="snip1535" onclick="location.href='/users/introduce'">교수 정보</button>
+<button  id="menu"class="snip1535" onclick="location.href='/users/enroll'">등록금납부안내</button>
+<button id="menu"class="snip1535" onclick="location.href='/users/map'">찾아오는 길</button>
+</td>
+</table>
+
+
+
+
+<h1 align="center" onclick="location.href='/evaluate/'"><%= title %></h1>
+
+<br>
+
+<div class="container">
+     <select name="boardname" id="boardname" style="width:13%" onchange="window.open(value,'_self');">
+     <option value="/table/page/1">자유게시판</option>
+     <option value="/notice/page/1">과목공지게시판</option>
+     <option value="/evaluate/page/1" selected>평가게시판</option>      
+     </select>
+<table class="table table-hover" >
+    <tr>
+        <th width = "100">번호</th>
+        <th width = "50">수강과목</th> 
+        <th width = "250">내용</th> 
+         <th width = "100">작성자</th> 
+        <th width = "100">평가점수</th>
+   
+ 
+    </tr>
+
+    <%
+    for(var i = (page * page_num) - page_num; i < (page * page_num); i++) {
+    if(i > length){
+        i++;
+    }else{
+        var oneItem = rows[i]
+    %>
+    <tr>
+        <td><%=oneItem.idx%></td>
+        <td><%=oneItem.Subject%></td>
+        <td><a href="/evaluate/read/<%=oneItem.idx%>"><%=oneItem.content%></a></td>
+        <td><%=oneItem.creator_id%></td>
+		<% if(oneItem.evaluation == 0) { %>
+		                  <td style="font-size:large" >☆☆☆☆☆</td>
+		<%}%>
+		<% if(oneItem.evaluation == 1) { %>
+		                  <td style="font-size:large">★☆☆☆☆</td>
+		<%}%>
+		<% if(oneItem.evaluation == 2) { %>
+		                  <td style="font-size:large">★★☆☆☆</td>
+		<%}%>
+		<% if(oneItem.evaluation == 3) { %>
+		                  <td style="font-size:large">★★★☆☆</td>
+		<%}%>
+		<% if(oneItem.evaluation == 4) { %>
+		                  <td style="font-size:large">★★★★☆</td>
+		<%}%>
+		<% if(oneItem.evaluation == 5) { %>
+		                  <td style="font-size:large">★★★★★</td>
+		<%}%>
+		<% if(!oneItem.evaluation) { %>
+		                  <td style="font-size:large"> </td>
+		<%}%>
+
+    </tr>
+    <% }
+    }
+    %>
+   
+    <tr>
+        <td colspan="6">
+            <%
+            for(var j = 0; j < rows.length / page_num; j++){
+            %>
+            <button type="button" onclick="location.href='/evaluate/page/<%= j + 1 %>' "><%= j + 1 %></button>
+            <%
+            }
+            %>
+        </td>
+    </tr>
+
+</table>
+
+<form action="/evaluate/page" method="post" align="center">
+<tr>
+     <td>     <select name="id" id="id" style="width:10%" align="center">
+     <option value="1">내용</option>
+     <option value="2">과목이름</option>
+     </select></td>
+</tr>
+     <input type="text" name="input" id="input" size="30" maxLength="30" style="width:50%" >
+     <input type="submit" class="btn btn-default" value="검색" style="width:10%">
+</form>
+<a class="btn btn-default pull-right" onclick="location.href='/evaluate/write' ">글쓰기</a>
+
+
+
+</div>
+
+
+
+  </body>
+
+
+</html>

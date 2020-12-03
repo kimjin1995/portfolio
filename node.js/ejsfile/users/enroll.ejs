@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta http-equiv="content-type" content="text/html; charset=euc-kr"/>
+    <title>MiniQ Corp</title>
+    <link href="/css/common.css" rel="stylesheet" type="text/css">
+
+    <style>
+html { overflow-y:scroll; }
+body{
+background-color: #F7FFF5;
+     background-image:url('/imgs/background.jpg');
+    background-size : cover;
+    background-repeat: no-repeat;
+   background-attachment : fixed;
+}
+ul#type1 {
+list-style:disc;
+}
+
+.invisible{
+clear:none;
+font-size:15px;
+border:0px none;
+float:none;
+color:white;
+background-color:transparent;
+display:inline;
+width:130px;
+background-color: #787878;
+color: #fff;
+text-align:left;
+}
+
+.invisiblebutton{
+font-size:15px;
+border:0px none;
+float:none;
+color:white;
+background-color:transparent;
+width:100%;
+height:100%;
+background-color: #787878;
+text-align:center;
+}
+
+
+.invisible:hover {
+   background-color: #595959;
+}
+#login{
+width:140px;
+height:25x;
+font-size:13px;
+display:inline;
+}
+
+
+#menu{
+width : 250px;
+height:60px;
+}
+li{
+  float:left;
+}
+    </style>
+
+  </head>
+  <body>
+
+<table   align="center" style="width:1700px;height:100px">
+<td>
+<section id='cssmenu' style="position:absolute;top:15px;width:450px;">
+<ul>
+   <li><a href='#'><span>   개인정보   </span></a>
+      <ul>
+         <li class='active'><a href='/users/grade'><span>성적조회</span></a></li>
+         <li class='active'><a href='/users/attend'><span>출석조회</span></a></li>
+         <li class='active'><a href='/users/check'><span>개인정보수정</span></a></li>
+      </ul>
+  </li>
+   <li class='active'><a href='/users/page/1'><span>   수강신청   </span></a></li>
+
+   <li><a href='#'><span>   장학,석차조회   </span></a>
+      <ul>
+         <li class='active'><a href='/users/scholarship'><span>장학조회</span></a></li>
+         <li class='active'><a href='/users/race'><span>석차조회</span></a></li>
+      </ul>
+  </li>
+
+   <li><a href='#'><span>   게시판   </span></a>
+      <ul>
+         <li class='active'><a href='/notice/page/1'><span>과목별 공지사항</span></a></li>
+         <li class='active'><a href='/table/page/1'><span>자유게시판</span></a></li>
+         <li class='active'><a href='/evaluate/page/1'><span>평가게시판</span></a></li>
+      </ul>
+  </li>
+</ul>
+</section>
+ <img src="/imgs/miniq.jpg" onclick="location.href='/users/screen'" style="margin-left:auto;margin-right:auto;display:block;width:10%;">
+<text style="font-size:18px;margin-left:1475px; margin-top : -50px;display:block;width:20%;"><%=logid%>(<%=logname%>)님 환영합니다</text>
+<button id="login" style="margin-left:1550px;" onclick="location.href='/users/logout'">로그아웃</button>
+</td>
+</table>
+<table  align="center" style="width:1700px;height:100px">
+<td>
+<button id="menu"class="snip1535" onclick="location.href='/users/introduce_school'">학교 소개</button>
+<button id="menu"class="snip1535" onclick="location.href='/users/introduce_major'">학부 소개</button>
+<button  id="menu"class="snip1535" onclick="location.href='/users/introduce'">교수 정보</button>
+<button  id="menu"class="snip1535" onclick="location.href='/users/enroll'">등록금납부안내</button>
+<button id="menu"class="snip1535" onclick="location.href='/users/map'">찾아오는 길</button>
+</td>
+</table>
+<table   align="center" style="width:1700px;height:100px; ">
+<td align="center">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <%
+  var myMG =0;
+  var myAG =0;
+  var myyear =0;
+  var mymajor;
+  var mycollege =0;
+  var myorder =1;
+  var majormoney;
+  var per;
+  var con;
+  for(var i=0; i<rows.length; i++)
+  {
+  var oneItem = rows[i];
+
+    if(oneItem.BaseName == logname ){
+    myMG = oneItem.SMajorAVG;
+    myAG = oneItem.SGradeAVG;
+    myyear = oneItem.SLevel;
+    mymajor = oneItem.BaseMajor;
+    majormoney = oneItem.MajorPrice;
+    }
+
+  }
+
+  for(var i=0; i<rows.length; i++)
+  {
+    var oneItem = rows[i];
+    if(oneItem.BaseMajor == mymajor){
+      if(oneItem.SLevel==myyear){
+        mycollege++
+
+        if(oneItem.BaseName != logname ){
+          if(myAG<oneItem.SGradeAVG){
+           myorder++;
+          }
+          else if(myAG==oneItem.SGradeAVG){
+            if(myMG < oneItem.SMajorAVG) myorder++;
+          }
+        }
+      }
+    }
+  }
+
+  if(myorder==1){
+    per = '100%';
+    con = 0;
+  }
+  else if(myorder ==2){
+    per = '50%';
+    con = majormoney/2;
+  }
+  else if(myorder ==3 || myorder==4){
+    per ='25%';
+    con = majormoney/4 * 3;
+  }
+  else {
+    per = '0%';
+    con = majormoney;
+  }
+  %>
+등록금 납부<br/>
+1. 등록금 납부방법<br/>
+
+ 가. 납부은행: 하나은행, 국민은행, 신한은행, 우리은행 전 지점<br/>
+ 나. 납부 방법<br/>
+ ① 가상계좌 납부(계좌이체): 등록금고지서상에 부여된 개인의 가상계좌로 납부하는 방법<br/>
+ ② 고지서로 은행에 직접납부 : 하나은행, 국민은행, 신한은행, 우리은행 전 영업점에 납부<br/>
+ ③ 인터넷 뱅킹(공과금/대학등록금납부)을 통한 납부<br/>
+ ④ 은행 자동화기기(ATM, C/D기)를 통한 납부<br/>
+<br/>
+ 다. 등록금 고지서 출력<br/>
+</td>
+<tr align="center">
+<td align="center">
+ <table  align="center">
+ <th span style="color: orange">▶학교 홈페이지 → 미니뀨 로그인 → 등록금고지서 출력<br/></th>
+</table>
+<br/>
+ 2. 등록금 고지금액
+ </br>
+ 가.학부
+<table width="800" border="3" >
+
+<tr>
+<th>구 분</th>
+<th>입학금(재입학생)</th>
+<th>등록금</th>
+<th>비고</th>
+</tr>
+
+<tr>
+<th>건축공학과</th>
+<th rowspan="8">500,000,000</th>
+<th>5,000,000</th>
+<th rowspan="8"> </th>
+</tr>
+
+<tr>
+<th>전기공학과<br/>전자공학과</th>
+<th>7,000,000</th>
+</tr>
+
+<tr>
+<th>컴퓨터 정보 공학<br>소프트웨어학부</th>
+<th>4,500,000</th>
+</tr>
+
+<tr>
+<th>화학공학과</th>
+<th>7,500,000</th>
+</tr>
+
+<tr>
+<th>로봇학부</th>
+<th>4,000,000</th>
+</tr>
+
+<tr>
+<th>국어국문학과</th>
+<th>5,500,000</th>
+</tr>
+
+<tr>
+<th>경영학부</th>
+<th>6,000,000</th>
+</tr>
+
+<tr>
+<th>수학과</th>
+<th>6,500,000</th>
+</tr>
+</br>
+</table>
+
+
+<table border = "0" align="center">
+<th span style="color: blue">● 수석, 전액 및 보훈장학생 등록</th></br>
+</table>
+<table border = "0" align="center">
+<th span style="color: black">수업료 0원으로 나와있는 고지서를 가지고 은행에 직접방문하여 ‘0원 납부처리’를 해야 등록이 완료됨</th>
+</table>
+
+<table border = "0" align="center">
+<th span style="color: blue">● 분할 등록 (별도 안내 예정)</br></th>
+</table>
+<table border = "0" align="center">
+<th span style="color: blue"> 1. 분할등록 신청대상</th>
+ <th span style="color: black">: 등록기간 내에 등록금 납부가 어려운 학생</th>
+</table>
+<table border = "0" align="center">
+<th span style="color: blue">  2. 분할등록 일정</th>
+ <th span style="color: black">: 가. 분할등록 신청기간: 2020. 08/18(화) - 08/21(금)</th>
+</table>
+<table border = "0" align="center">
+    <th span style="color: red">※위 기간 내에 신청을 하지 않을 시에는 분할등록을 불허함</th></br>
+   </table>
+<table border = "0" align="center">
+ <th span style="color: black">나. 1차 등록기간: 2020. 08/24(월) - 08/28(금) ... (납부금액: 100만원)</th>
+   </table>
+<table border = "0" align="center">
+ <th span style="color: black">다. 2차 등록기간: 2020. 09/21(월) - 09/25(금) ... (납부금액: 100만원)</th>
+   </table>
+<table border = "0" align="center">
+ <th span style="color: black">다. 2차 등록기간: 2020. 09/21(월) - 09/25(금) ... (납부금액: 100만원)</th>
+   </table>
+<table border = "0" align="center">
+ <th span style="color: black">라. 3차 등록기간: 2020. 10/19(월) - 10/23(금) ... (납부금액: 100만원)</th>
+   </table>
+<table border = "0" align="center">
+ <th span style="color: black">마. 4차 등록기간: 2020. 11/23(월) - 11/27(금) ... (납부금액: 잔액)  </th>
+   </table>
+<table border = "0" align="center">
+ <th span style="color: black">      3. 신청방법 및 구비서류   </th>
+   </table>
+
+<table border = "0" align="center">
+ <th span style="color: black">     가. 신청 및 제출: 해당대학 교학팀에서 소정양식(분할등록신청서)을 수령 및 작성하여 학과장의 추천을 받아 해당 교학팀에 제출   </th>
+   </table>
+<table border = "0" align="center">
+ <th span style="color: black">     나. 납부금액:   </th>
+   </table>
+<table border = "0" align="center">
+ <th span style="color: black">      1차 100만원을 납부하고,   </th>
+   </table>
+<table border = "0" align="center">
+ <th span style="color: black">      2차 100만원을 납부하고,   </th>
+   </table>
+<table border = "0" align="center">
+ <th span style="color: black">      3차 100만원을 납부하고,      </th>
+   </table>
+
+<table border = "0" align="center">
+ <th span style="color: black">      잔액은 2020. 11. 27(금)까지 완납   </th>
+   </table>
+<table border = "0" align="center">
+ <th span style="color: black">      다. 구비서류   </th>
+   </table>
+<table border = "0" align="center">
+ <th span style="color: black">      ▶ 분할등록신청서(본인 및 보호자 날인 후 학과장 경유) </th>
+   </table>
+<table border = "0" align="center">
+ <th span style="color: black">      ▶ 주민등록등본(보호자와 본인과의 관계를 증명할 수 있어야 함)   </th>
+</table>
+<table border = "0" align="center">
+ <th span style="color: black">         4. 분할등록 고지서 수령 및 납부  </th>
+ <th span style="color: black">      : 분할등록 고지서는 2020. 03. 09(월)부터 KLAS에서 고지서 출력 후 하나은행 가상계좌로 납부  </th>
+</table>
+<table border = "0" align="center">
+ <th span style="color: black">         가. 해당 대학 교학팀:   </th>
+</table>
+<table border = "0" align="center">
+ <th span style="color: black">         전자정보대학: 940-5101,   </th>
+</table>
+<table border = "0" align="center">
+ <th span style="color: black">         소프트웨어융합대학: 940-5571~2,   </th>
+</table>
+<table border = "0" align="center">
+ <th span style="color: black">         공과대학: 940-5601,   </th>
+</table>
+<table border = "0" align="center">
+ <th span style="color: black">         자연과학대학: 940-5201,   </th>
+</table>
+<table border = "0" align="center">
+ <th span style="color: black">         인문사회과학대학 : 940-5785,   </th>
+</table>
+<table border = "0" align="center">
+ <th span style="color: black">         정책법학대학: 940-5561,   </th>
+</table>
+<table border = "0" align="center">
+ <th span style="color: black">         경영대학: 940-5302,   </th>
+</table>
+<table border = "0" align="center">
+ <th span style="color: black">         동북아대학 : 940-5301   </th>
+</table>
+<table border = "0" align="center">
+ <th span style="color: black">         나. 재무팀: 02) 940-5046~7   </th>
+</table>
+<table border = "0" align="center">
+ <th span style="color: black">         다. 분할납부 연계대출 신청 : 학생복지팀 940-5033   </th>
+</table>
+
+<table border = "0" align="center">
+ <th span style="color: black">            6. 유의사항  </th>
+</table>
+<table border = "0" align="center">
+ <th span style="color: black">         가. 잔액 납부기한(2020. 11. 27(금)까지 완납하지 않으면 기납부한 등록금은 반환하지 않으며, 자동으로 직권휴학 처리됨을 유의하시기 바랍니다.  </th>
+</table>
+<table border = "0" align="center">
+ <th span style="color: black">         (분납기간 중 휴학은 불가능하며, 자퇴시 기납부한 등록금은 반환하지 않습니다.)   </th>
+</table>
+<table border = "0" align="center">
+ <th span style="color: black">         나. 등록금 분할납부자의 경우 등록금 완납 후 국가장학금이 지급됩니다.   (국가장학금은 11월 중 일괄지급)  </th>
+</table>
+<table border = "0" align="center">
+ <th span style="color: black">         다. 한국장학재단 등록금 분할납부 연계대출 이용희망자는 1회차 자비납부, 2회차부터 연계대출 이용이 가능합니다. (학생복지팀 문의)   </th>
+</table>
+<table border = "0" align="center">
+ <th span style="color: black">         라. 재입학생은 분할납부가 불가합니다.   </th>
+</table>
+<table border = "0" align="center">
+ <th span style="color: black">         TOP ● 졸업요건 미달자에 대한 등록금 책정 기준(학점당 등록)   </th>
+</table>
+<table border = "0" align="center">
+ <th span style="color: black">         1. 대상조건: 졸업요건 미달로 수업연한(8학기, 편입생 4학기)을 초과하여 학기를 이수하는 학생   </th>
+</table>
+<table border = "0" align="center">
+ <th span style="color: black">         2. 신청기간: 매학기 등록기간 중에   </th>
+</table>
+<table border = "0" align="center">
+ <th span style="color: black">         3. 신청방법: 수강신청서(교육지원팀 담당자) 확인 후 ⇒ KLAS에서 고지서 출력   </th>
+</table>
+<table border = "0" align="center">
+ <th span style="color: black">         4. 학점당 등록금 산출기준   </th>
+</table>
+
+<table width="800" border="3" align="center">
+<tr>
+   <th>구 분</th>
+   <th> 적 용 비 율</th>
+   <th>비 고</th>
+</tr>
+
+<tr>
+   <th>0학점</th>
+   <th>소속 학과(부)의 4학년 수업료의 12분의 1</th>
+   <th></th>
+</tr>
+
+<tr>
+   <th>1학점 ~ 3학점</th>
+   <th>소속 학과(부)의 4학년 수업료의 6분의 1</th>
+   <th></th>
+
+</tr>
+
+<tr>
+   <th>4학점 ~ 6학점</th>
+   <th>소속 학과(부)의 4학년 수업료의 3분의 1</th>
+   <th></th>
+</tr>
+
+<tr>
+   <th>7학점 ~ 9학점</th>
+   <th>소속 학과(부)의 4학년 수업료의 2분의 1</th>
+   <th></th>
+</tr>
+
+<tr>
+   <th>10학점 ~</th>
+   <th>전액</th>
+   <th></th>
+</tr>
+
+</table>
+
+<table border = "0" align="center">
+ <th span style="color: black">        ● 학부생 은행정보 등록 안내   </th>
+</table>
+<table border = "0" align="center">
+ <th span style="color: black">         1. 목적 및 내용   </th>
+</table>
+<table border = "0" align="center">
+ <th span style="color: black">         ▶ 향후 학생 개개인들에게 입금하는 모든 지급분(등록금 차액환불금, 장학금 차액환불금, 근로장학금 등)은   </th>
+</table>
+<table border = "0" align="center">
+ <th span style="color: black">         홈페이지 →KLAS → 개인정보수정(신상 정보조회/변경)에서 은행/계좌번호 에 학생들이 직접 등록한 은행   </th>
+</table>
+<table border = "0" align="center">
+ <th span style="color: black">         계좌로 입금하고자 합니다. 반드시 현재 사용 중인 은행계좌를 정확하게 입력하시기 바랍니다.   </th>
+</table>
+<table border = "0" align="center">
+ <th span style="color: black">         2. 은행정보 등록방법   </th>
+</table>
+</table>
+<table border = "0" align="center">
+ <th span style="color: black">         ▶ 학교 홈페이지 KLAS 로그인    </th>
+</table>
+</table>
+<table border = "0" align="center">
+ <th span style="color: black">         => 개인정보수정(신상 정보조회/변경)에서 은행/계좌번호 입력   </th>
+</table>
+</table>
+<table border = "0" align="center">
+ <th span style="color: black">         ▶ 반드시 통장 계좌번호 그대로(숫자 사이에 “-”를 넣고) 등록하시기 바랍니다.   </th>
+</table>
+</table>
+<table border = "0" align="center">
+ <th span style="color: black">         ▶ 예) 123-45-67890(○), 1234567890(×)   </th>
+</table>
+
+<br><br><br><br>
+  <div align="center" >
+    <button style="width:25%;height:100%;" onclick="submit()">등록금고지서 출력</button>
+  </div>
+
+</td>
+</tr>
+<script>
+function submit(){
+alert("내실 돈은 "  + <%=con%>+ " 원 입니다.") ;
+}
+</script>
+<br><br><br><br><br><br><br>
+  </body>
+
+
+</html>

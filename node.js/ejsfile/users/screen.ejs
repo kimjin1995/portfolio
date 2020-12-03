@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta http-equiv="content-type" content="text/html; charset=euc-kr"/>
+    <title>MiniQ Corp</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">   
+    <link href="/css/common.css" rel="stylesheet" type="text/css">
+
+    <style>
+
+div p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 10px;
+  height: 20px;
+}
+
+
+
+html { overflow-y:scroll; }
+body{ 
+background-color: #F7FFF5;
+     background-image:url('/imgs/background.jpg');
+    background-size : cover;
+    background-repeat: no-repeat;
+   background-attachment : fixed;
+}
+ul#type1 {
+list-style:disc;
+}
+
+.invisible{
+clear:none;
+font-size:15px;
+border:0px none;
+float:none;
+color:white;
+background-color:transparent;
+display:inline;
+width:130px;
+background-color: #787878;
+color: #fff;
+text-align:left;
+}
+
+.invisiblebutton{
+font-size:15px;
+border:0px none;
+float:none;
+color:white;
+background-color:transparent;
+width:100%;
+height:100%;
+background-color: #787878;
+text-align:center;
+}
+
+
+.invisible:hover {
+	background-color: #595959;
+}
+#login{
+width:140px;
+height:25x;
+font-size:13px;
+display:inline;
+}
+
+
+#menu{
+width : 250px;
+height:60px;
+}
+li{
+  float:left;
+}
+    </style>
+
+  </head>
+
+
+<script>
+function getday(x)
+{
+if(x == null)
+return -1;
+
+var temp1 = x.substring(0,1);
+var temp2 = x.substring(1,2);
+var day;
+if(temp1 =="월")
+day = 0;
+else if(temp1 =="화")
+day = 1;
+else if(temp1 =="수")
+day = 2;
+else if(temp1 =="목")
+day = 3;
+else if(temp1 =="금")
+day = 4;
+
+return 5 * temp2 + day+1 -5;
+}
+
+window.onload= function(){
+
+
+var X  =  document.getElementById("selectBox").selectedIndex;
+
+if(X == 0)
+{
+document.getElementById("time1").style.display = 'none';
+document.getElementById("time2").style.display = 'none';
+document.getElementById("time3").style.display = 'none';
+document.getElementById("time4").style.display = 'none';
+document.getElementById("time5").style.display = 'none';
+document.getElementById("time6").style.display = 'none';
+document.getElementById("time7").style.display = 'none';
+document.getElementById("time8").style.display = 'none';
+document.getElementById("time9").style.display = 'none';
+document.getElementById("time10").style.display = 'none';
+document.getElementById("time11").style.display = 'none';
+document.getElementById("time12").style.display = 'none';
+document.getElementById("time13").style.display = 'none';
+document.getElementById("time14").style.display = 'none';
+document.getElementById("time15").style.display = 'none';
+document.getElementById("time16").style.display = 'none';
+document.getElementById("time17").style.display = 'none';
+document.getElementById("time18").style.display = 'none';
+document.getElementById("time19").style.display = 'none';
+document.getElementById("time20").style.display = 'none';
+document.getElementById("time21").style.display = 'none';
+document.getElementById("time22").style.display = 'none';
+document.getElementById("time23").style.display = 'none';
+document.getElementById("time24").style.display = 'none';
+document.getElementById("time25").style.display = 'none';
+document.getElementById("time26").style.display = 'none';
+document.getElementById("time27").style.display = 'none';
+document.getElementById("time28").style.display = 'none';
+document.getElementById("time29").style.display = 'none';
+document.getElementById("time30").style.display = 'none';
+document.getElementById("time31").style.display = 'none';
+document.getElementById("time32").style.display = 'none';
+document.getElementById("time33").style.display = 'none';
+document.getElementById("time34").style.display = 'none';
+document.getElementById("time35").style.display = 'none';
+document.getElementById("time36").style.display = 'none';
+document.getElementById("time37").style.display = 'none';
+document.getElementById("time38").style.display = 'none';
+document.getElementById("time39").style.display = 'none';
+document.getElementById("time40").style.display = 'none';
+
+let q1 = "time" + getday("<%=result[0].SubTime1%>");	let q2 = "time" + getday("<%=result[0].SubTime2%>");	
+let w1 = "time" + getday("<%=result[1].SubTime1%>");	let w2 = "time" + getday("<%=result[1].SubTime2%>");	
+let e1 = "time" + getday("<%=result[2].SubTime1%>");	let e2 = "time" + getday("<%=result[2].SubTime2%>"); 
+let r1 = "time" + getday("<%=result[3].SubTime1%>");	let r2 = "time" + getday("<%=result[3].SubTime2%>"); 
+
+
+document.getElementById(q1).innerHTML = "<%=result[0].SubTime1%> <%=result[0].SubTime2%>  <br><%=result[0].SubClassroom%> <br> <%=result[0].CourseName%> <br> <%=result[0].BaseName%>";
+document.getElementById(q1).style.display = 'block';
+document.getElementById(q1).style.fontSize = "xx-small";
+document.getElementById(q1).onclick = function()
+{ location.href = "www.naver.com"; }
+document.getElementById(q2).innerHTML = "<%=result[0].SubTime1%> <%=result[0].SubTime2%> <br><%=result[0].SubClassroom%> <br> <%=result[0].CourseName%> <br> <%=result[0].BaseName%>";
+document.getElementById(q2).style.display = 'block';
+document.getElementById(q2).style.fontSize = "xx-small";
+document.getElementById(q2).onclick = function()
+{ location.href = "www.naver.com"; }
+
+document.getElementById(w1).innerHTML = "<%=result[1].SubTime1%> <%=result[1].SubTime2%>  <br><%=result[1].SubClassroom%> <br> <%=result[1].CourseName%> <br> <%=result[1].BaseName%>";
+document.getElementById(w1).style.display = 'block';
+document.getElementById(w1).style.fontSize = "xx-small";
+document.getElementById(w1).onclick = function()
+{ location.href = "www.naver.com"; }
+document.getElementById(w2).innerHTML = "<%=result[1].SubTime1%> <%=result[1].SubTime2%>  <br><%=result[1].SubClassroom%> <br> <%=result[1].CourseName%> <br> <%=result[1].BaseName%>";
+document.getElementById(w2).style.display = 'block';
+document.getElementById(w2).style.fontSize = "xx-small";
+document.getElementById(w2).onclick = function()
+{ location.href = "www.naver.com"; }
+
+
+document.getElementById(e1).innerHTML = "<%=result[2].SubTime1%> <%=result[2].SubTime2%>  <br><%=result[2].SubClassroom%> <br> <%=result[2].CourseName%> <br> <%=result[2].BaseName%>";
+document.getElementById(e1).style.display = 'block';
+document.getElementById(e1).style.fontSize = "xx-small";
+document.getElementById(e1).onclick = function()
+{ location.href = "www.naver.com"; }
+document.getElementById(e2).innerHTML = "<%=result[2].SubTime1%> <%=result[2].SubTime2%>  <br><%=result[2].SubClassroom%> <br> <%=result[2].CourseName%> <br> <%=result[2].BaseName%>";
+document.getElementById(e2).style.display = 'block';
+document.getElementById(e2).style.fontSize = "xx-small";
+document.getElementById(e2).onclick = function()
+{ location.href = "www.naver.com"; }
+
+document.getElementById(r1).innerHTML = "<%=result[3].SubTime1%> <%=result[3].SubTime2%><br><%=result[3].SubClassroom%> <br> <%=result[3].CourseName%> <br> <%=result[3].BaseName%>";
+document.getElementById(r1).style.display = 'block';
+document.getElementById(r1).style.fontSize = "xx-small";
+document.getElementById(r1).onclick = function()
+{ location.href = "www.naver.com"; }
+document.getElementById(r2).innerHTML = "<%=result[3].SubTime1%> <%=result[3].SubTime2%> <br><%=result[3].SubClassroom%> <br> <%=result[3].CourseName%> <br> <%=result[3].BaseName%>";
+document.getElementById(r2).style.display = 'block';
+document.getElementById(r2).style.fontSize = "xx-small";
+document.getElementById(r2).onclick = function()
+{ location.href = "www.naver.com"; }
+
+}
+}
+
+
+
+
+
+
+
+
+function getIndex() {
+var X =   document.getElementById("selectBox").selectedIndex;
+
+document.getElementById("time1").style.display = 'none';
+document.getElementById("time2").style.display = 'none';
+document.getElementById("time3").style.display = 'none';
+document.getElementById("time4").style.display = 'none';
+document.getElementById("time5").style.display = 'none';
+document.getElementById("time6").style.display = 'none';
+document.getElementById("time7").style.display = 'none';
+document.getElementById("time8").style.display = 'none';
+document.getElementById("time9").style.display = 'none';
+document.getElementById("time10").style.display = 'none';
+document.getElementById("time11").style.display = 'none';
+document.getElementById("time12").style.display = 'none';
+document.getElementById("time13").style.display = 'none';
+document.getElementById("time14").style.display = 'none';
+document.getElementById("time15").style.display = 'none';
+document.getElementById("time16").style.display = 'none';
+document.getElementById("time17").style.display = 'none';
+document.getElementById("time18").style.display = 'none';
+document.getElementById("time19").style.display = 'none';
+document.getElementById("time20").style.display = 'none';
+document.getElementById("time21").style.display = 'none';
+document.getElementById("time22").style.display = 'none';
+document.getElementById("time23").style.display = 'none';
+document.getElementById("time24").style.display = 'none';
+document.getElementById("time25").style.display = 'none';
+document.getElementById("time26").style.display = 'none';
+document.getElementById("time27").style.display = 'none';
+document.getElementById("time28").style.display = 'none';
+document.getElementById("time29").style.display = 'none';
+document.getElementById("time30").style.display = 'none';
+document.getElementById("time31").style.display = 'none';
+document.getElementById("time32").style.display = 'none';
+document.getElementById("time33").style.display = 'none';
+document.getElementById("time34").style.display = 'none';
+document.getElementById("time35").style.display = 'none';
+document.getElementById("time36").style.display = 'none';
+document.getElementById("time37").style.display = 'none';
+document.getElementById("time38").style.display = 'none';
+document.getElementById("time39").style.display = 'none';
+document.getElementById("time40").style.display = 'none';
+
+
+let q1,q2,q3,w1,w2,w3,e1,e2,e3,r1,r2,r3,t1,t2,t3,y1,y2,y3,u1,u2,u3;
+if(X == 0)
+{
+ q1 = "time" + getday("<%=result[0].SubTime1%>");	 q2 = "time" + getday("<%=result[0].SubTime2%>"); 
+ w1 = "time" + getday("<%=result[1].SubTime1%>");	 w2 = "time" + getday("<%=result[1].SubTime2%>"); 
+e1 = "time" + getday("<%=result[2].SubTime1%>");	 e2 = "time" + getday("<%=result[2].SubTime2%>");  
+ r1 = "time" + getday("<%=result[3].SubTime1%>");	 r2 = "time" + getday("<%=result[3].SubTime2%>");  
+
+
+document.getElementById(q1).innerHTML = "<%=result[0].SubTime1%> <%=result[0].SubTime2%>  <br><%=result[0].SubClassroom%> <br> <%=result[0].CourseName%> <br> <%=result[0].BaseName%>";
+document.getElementById(q1).style.display = 'block';
+document.getElementById(q1).style.fontSize = "xx-small";
+document.getElementById(q1).onclick = function()
+{ location.href = "www.naver.com"; }
+document.getElementById(q2).innerHTML = "<%=result[0].SubTime1%> <%=result[0].SubTime2%>  <br><%=result[0].SubClassroom%> <br> <%=result[0].CourseName%> <br> <%=result[0].BaseName%>";
+document.getElementById(q2).style.display = 'block';
+document.getElementById(q2).style.fontSize = "xx-small";
+document.getElementById(q2).onclick = function()
+{ location.href = "www.naver.com"; }
+
+document.getElementById(w1).innerHTML = "<%=result[1].SubTime1%> <%=result[1].SubTime2%>  <br><%=result[1].SubClassroom%> <br> <%=result[1].CourseName%> <br> <%=result[1].BaseName%>";
+document.getElementById(w1).style.display = 'block';
+document.getElementById(w1).style.fontSize = "xx-small";
+document.getElementById(w1).onclick = function()
+{ location.href = "www.naver.com"; }
+document.getElementById(w2).innerHTML = "<%=result[1].SubTime1%> <%=result[1].SubTime2%>  <br><%=result[1].SubClassroom%> <br> <%=result[1].CourseName%> <br> <%=result[1].BaseName%>";
+document.getElementById(w2).style.display = 'block';
+document.getElementById(w2).style.fontSize = "xx-small";
+document.getElementById(w2).onclick = function()
+{ location.href = "www.naver.com"; }
+
+document.getElementById(e1).innerHTML = "<%=result[2].SubTime1%> <%=result[2].SubTime2%>  <br><%=result[2].SubClassroom%> <br> <%=result[2].CourseName%> <br> <%=result[2].BaseName%>";
+document.getElementById(e1).style.display = 'block';
+document.getElementById(e1).style.fontSize = "xx-small";
+document.getElementById(e1).onclick = function()
+{ location.href = "www.naver.com"; }
+document.getElementById(e2).innerHTML = "<%=result[2].SubTime1%> <%=result[2].SubTime2%>  <br><%=result[2].SubClassroom%> <br> <%=result[2].CourseName%> <br> <%=result[2].BaseName%>";
+document.getElementById(e2).style.display = 'block';
+document.getElementById(e2).style.fontSize = "xx-small";
+document.getElementById(e2).onclick = function()
+{ location.href = "www.naver.com"; }
+document.getElementById(r1).innerHTML = "<%=result[3].SubTime1%> <%=result[3].SubTime2%>  <br><%=result[3].SubClassroom%> <br> <%=result[3].CourseName%> <br> <%=result[3].BaseName%>";
+document.getElementById(r1).style.display = 'block';
+document.getElementById(r1).style.fontSize = "xx-small";
+document.getElementById(r1).onclick = function()
+{ location.href = "www.naver.com"; }
+document.getElementById(r2).innerHTML = "<%=result[3].SubTime1%> <%=result[3].SubTime2%>  <br><%=result[3].SubClassroom%> <br> <%=result[3].CourseName%> <br> <%=result[3].BaseName%>";
+document.getElementById(r2).style.display = 'block';
+document.getElementById(r2).style.fontSize = "xx-small";
+document.getElementById(r2).onclick = function()
+{ location.href = "www.naver.com"; }
+
+
+
+}
+else if(X== 1)
+{
+ q1 = "time" + getday("<%=result1[0].SubTime1%>");	 q2 = "time" + getday("<%=result1[0].SubTime2%>"); 
+ w1 = "time" + getday("<%=result1[1].SubTime1%>");	 w2 = "time" + getday("<%=result1[1].SubTime2%>"); 
+ e1 = "time" + getday("<%=result1[2].SubTime1%>");	 e2 = "time" + getday("<%=result1[2].SubTime2%>");  
+ r1 = "time" + getday("<%=result1[3].SubTime1%>");	 r2 = "time" + getday("<%=result1[3].SubTime2%>");  
+
+document.getElementById(q1).innerHTML = "<%=result1[0].SubTime1%> <%=result1[0].SubTime2%>  <br><%=result1[0].SubClassroom%> <br> <%=result1[0].CourseName%> <br> <%=result1[0].BaseName%>";
+document.getElementById(q1).style.display = 'block';
+document.getElementById(q1).style.fontSize = "xx-small";
+document.getElementById(q1).onclick = function()
+{ location.href = "www.naver.com"; }
+document.getElementById(q2).innerHTML = "<%=result1[0].SubTime1%> <%=result1[0].SubTime2%>  <br><%=result1[0].SubClassroom%> <br> <%=result1[0].CourseName%> <br> <%=result1[0].BaseName%>";
+document.getElementById(q2).style.display = 'block';
+document.getElementById(q2).style.fontSize = "xx-small";
+document.getElementById(q2).onclick = function()
+{ location.href = "www.naver.com"; }
+
+document.getElementById(w1).innerHTML = "<%=result1[1].SubTime1%> <%=result1[1].SubTime2%>  <br><%=result1[1].SubClassroom%> <br> <%=result1[1].CourseName%> <br> <%=result1[1].BaseName%>";
+document.getElementById(w1).style.display = 'block';
+document.getElementById(w1).style.fontSize = "xx-small";
+document.getElementById(w1).onclick = function()
+{ location.href = "www.naver.com"; }
+document.getElementById(w2).innerHTML = "<%=result1[1].SubTime1%> <%=result1[1].SubTime2%>  <br><%=result1[1].SubClassroom%> <br> <%=result1[1].CourseName%> <br> <%=result1[1].BaseName%>";
+document.getElementById(w2).style.display = 'block';
+document.getElementById(w2).style.fontSize = "xx-small";
+document.getElementById(w2).onclick = function()
+{ location.href = "www.naver.com"; }
+
+document.getElementById(e1).innerHTML = "<%=result1[2].SubTime1%> <%=result1[2].SubTime2%>  <br><%=result1[2].SubClassroom%> <br> <%=result1[2].CourseName%> <br> <%=result1[2].BaseName%>";
+document.getElementById(e1).style.display = 'block';
+document.getElementById(e1).style.fontSize = "xx-small";
+document.getElementById(e1).onclick = function()
+{ location.href = "www.naver.com"; }
+document.getElementById(e2).innerHTML = "<%=result1[2].SubTime1%> <%=result1[2].SubTime2%>  <br><%=result1[2].SubClassroom%> <br> <%=result1[2].CourseName%> <br> <%=result1[2].BaseName%>";
+document.getElementById(e2).style.display = 'block';
+document.getElementById(e2).style.fontSize = "xx-small";
+document.getElementById(e2).onclick = function()
+{ location.href = "www.naver.com"; }
+document.getElementById(r1).innerHTML = "<%=result1[3].SubTime1%> <%=result1[3].SubTime2%>  <br><%=result1[3].SubClassroom%> <br> <%=result1[3].CourseName%> <br> <%=result1[3].BaseName%>";
+document.getElementById(r1).style.display = 'block';
+document.getElementById(r1).style.fontSize = "xx-small";
+document.getElementById(r1).onclick = function()
+{ location.href = "www.naver.com"; }
+document.getElementById(r2).innerHTML = "<%=result1[3].SubTime1%> <%=result1[3].SubTime2%>  <br><%=result1[3].SubClassroom%> <br> <%=result1[3].CourseName%> <br> <%=result1[3].BaseName%>";
+document.getElementById(r2).style.display = 'block';
+document.getElementById(r2).style.fontSize = "xx-small";
+document.getElementById(r2).onclick = function()
+{ location.href = "www.naver.com"; }
+
+
+
+}
+else if(X== 2)
+{
+ q1 = "time" + getday("<%=result2[0].SubTime1%>");	 q2 = "time" + getday("<%=result2[0].SubTime2%>");
+ w1 = "time" + getday("<%=result2[1].SubTime1%>");	 w2 = "time" + getday("<%=result2[1].SubTime2%>"); 
+e1 = "time" + getday("<%=result2[2].SubTime1%>");	 e2 = "time" + getday("<%=result2[2].SubTime2%>");  
+ r1 = "time" + getday("<%=result2[3].SubTime1%>");	 r2 = "time" + getday("<%=result2[3].SubTime2%>"); 
+
+document.getElementById(q1).innerHTML = "<%=result2[0].SubTime1%> <%=result2[0].SubTime2%>  <br><%=result2[0].SubClassroom%> <br> <%=result2[0].CourseName%> <br> <%=result2[0].BaseName%>";
+document.getElementById(q1).style.display = 'block';
+document.getElementById(q1).style.fontSize = "xx-small";
+document.getElementById(q1).onclick = function()
+{ location.href = "www.naver.com"; }
+document.getElementById(q2).innerHTML = "<%=result2[0].SubTime1%> <%=result2[0].SubTime2%>  <br><%=result2[0].SubClassroom%> <br> <%=result2[0].CourseName%> <br> <%=result2[0].BaseName%>";
+document.getElementById(q2).style.display = 'block';
+document.getElementById(q2).style.fontSize = "xx-small";
+document.getElementById(q2).onclick = function()
+{ location.href = "www.naver.com"; }
+
+document.getElementById(w1).innerHTML = "<%=result2[1].SubTime1%> <%=result2[1].SubTime2%>  <br><%=result2[1].SubClassroom%> <br> <%=result2[1].CourseName%> <br> <%=result2[1].BaseName%>";
+document.getElementById(w1).style.display = 'block';
+document.getElementById(w1).style.fontSize = "xx-small";
+document.getElementById(w1).onclick = function()
+{ location.href = "www.naver.com"; }
+document.getElementById(w2).innerHTML = "<%=result2[1].SubTime1%> <%=result2[1].SubTime2%>  <br><%=result2[1].SubClassroom%> <br> <%=result2[1].CourseName%> <br> <%=result2[1].BaseName%>";
+document.getElementById(w2).style.display = 'block';
+document.getElementById(w2).style.fontSize = "xx-small";
+document.getElementById(w2).onclick = function()
+{ location.href = "www.naver.com"; }
+
+document.getElementById(e1).innerHTML = "<%=result2[2].SubTime1%> <%=result2[2].SubTime2%>  <br><%=result2[2].SubClassroom%> <br> <%=result2[2].CourseName%> <br> <%=result2[2].BaseName%>";
+document.getElementById(e1).style.display = 'block';
+document.getElementById(e1).style.fontSize = "xx-small";
+document.getElementById(e1).onclick = function()
+{ location.href = "www.naver.com"; }
+document.getElementById(e2).innerHTML = "<%=result2[2].SubTime1%> <%=result2[2].SubTime2%>  <br><%=result2[2].SubClassroom%> <br> <%=result2[2].CourseName%> <br> <%=result2[2].BaseName%>";
+document.getElementById(e2).style.display = 'block';
+document.getElementById(e2).style.fontSize = "xx-small";
+document.getElementById(e2).onclick = function()
+{ location.href = "www.naver.com"; }
+document.getElementById(r1).innerHTML = "<%=result2[3].SubTime1%> <%=result2[3].SubTime2%>  <br><%=result2[3].SubClassroom%> <br> <%=result2[3].CourseName%> <br> <%=result2[3].BaseName%>";
+document.getElementById(r1).style.display = 'block';
+document.getElementById(r1).style.fontSize = "xx-small";
+document.getElementById(r1).onclick = function()
+{ location.href = "www.naver.com"; }
+document.getElementById(r2).innerHTML = "<%=result2[3].SubTime1%> <%=result2[3].SubTime2%>  <br><%=result2[3].SubClassroom%> <br> <%=result2[3].CourseName%> <br> <%=result2[3].BaseName%>";
+document.getElementById(r2).style.display = 'block';
+document.getElementById(r2).style.fontSize = "xx-small";
+document.getElementById(r2).onclick = function()
+{ location.href = "www.naver.com"; }
+
+
+
+}
+else if(X== 3)
+{
+ q1 = "time" + getday("<%=result3[0].SubTime1%>");	 q2 = "time" + getday("<%=result3[0].SubTime2%>"); 
+ w1 = "time" + getday("<%=result3[1].SubTime1%>");	 w2 = "time" + getday("<%=result3[1].SubTime2%>"); 
+ e1 = "time" + getday("<%=result3[2].SubTime1%>");	 e2 = "time" + getday("<%=result3[2].SubTime2%>");  
+ r1 = "time" + getday("<%=result3[3].SubTime1%>");	 r2 = "time" + getday("<%=result3[3].SubTime2%>");  
+
+document.getElementById(q1).innerHTML = "<%=result3[0].SubTime1%> <%=result3[0].SubTime2%>  <br><%=result3[0].SubClassroom%> <br> <%=result3[0].CourseName%> <br> <%=result3[0].BaseName%>";
+document.getElementById(q1).style.display = 'block';
+document.getElementById(q1).style.fontSize = "xx-small";
+document.getElementById(q1).onclick = function()
+{ location.href = "www.naver.com"; }
+document.getElementById(q2).innerHTML = "<%=result3[0].SubTime1%> <%=result3[0].SubTime2%>  <br><%=result3[0].SubClassroom%> <br> <%=result3[0].CourseName%> <br> <%=result3[0].BaseName%>";
+document.getElementById(q2).style.display = 'block';
+document.getElementById(q2).style.fontSize = "xx-small";
+document.getElementById(q2).onclick = function()
+{ location.href = "www.naver.com"; }
+
+document.getElementById(w1).innerHTML = "<%=result3[1].SubTime1%> <%=result3[1].SubTime2%>  <br><%=result3[1].SubClassroom%> <br> <%=result3[1].CourseName%> <br> <%=result3[1].BaseName%>";
+document.getElementById(w1).style.display = 'block';
+document.getElementById(w1).style.fontSize = "xx-small";
+document.getElementById(w1).onclick = function()
+{ location.href = "www.naver.com"; }
+document.getElementById(w2).innerHTML = "<%=result3[1].SubTime1%> <%=result3[1].SubTime2%>  <br><%=result3[1].SubClassroom%> <br> <%=result3[1].CourseName%> <br> <%=result3[1].BaseName%>";
+document.getElementById(w2).style.display = 'block';
+document.getElementById(w2).style.fontSize = "xx-small";
+document.getElementById(w2).onclick = function()
+{ location.href = "www.naver.com"; }
+
+document.getElementById(e1).innerHTML = "<%=result3[2].SubTime1%> <%=result3[2].SubTime2%>  <br><%=result3[2].SubClassroom%> <br> <%=result3[2].CourseName%> <br> <%=result3[2].BaseName%>";
+document.getElementById(e1).style.display = 'block';
+document.getElementById(e1).style.fontSize = "xx-small";
+document.getElementById(e1).onclick = function()
+{ location.href = "www.naver.com"; }
+document.getElementById(e2).innerHTML = "<%=result3[2].SubTime1%> <%=result3[2].SubTime2%>  <br><%=result3[2].SubClassroom%> <br> <%=result3[2].CourseName%> <br> <%=result3[2].BaseName%>";
+document.getElementById(e2).style.display = 'block';
+document.getElementById(e2).style.fontSize = "xx-small";
+document.getElementById(e2).onclick = function()
+{ location.href = "www.naver.com"; }
+document.getElementById(r1).innerHTML = "<%=result3[3].SubTime1%> <%=result3[3].SubTime2%>  <br><%=result3[3].SubClassroom%> <br> <%=result3[3].CourseName%> <br> <%=result3[3].BaseName%>";
+document.getElementById(r1).style.display = 'block';
+document.getElementById(r1).style.fontSize = "xx-small";
+document.getElementById(r1).onclick = function()
+{ location.href = "www.naver.com"; }
+document.getElementById(r2).innerHTML = "<%=result3[3].SubTime1%> <%=result3[3].SubTime2%>  <br><%=result3[3].SubClassroom%> <br> <%=result3[3].CourseName%> <br> <%=result3[3].BaseName%>";
+document.getElementById(r2).style.display = 'block';
+document.getElementById(r2).style.fontSize = "xx-small";
+document.getElementById(r2).onclick = function()
+{ location.href = "www.naver.com"; }
+
+}
+
+
+
+
+
+}
+
+
+</script>
+
+
+  <body>
+
+
+<table   align="center" style="width:1700px;height:100px">
+<td>
+<section id='cssmenu' style="position:absolute;top:15px;width:450px;">
+<ul>
+   <li><a href='#'><span>   개인정보   </span></a>
+      <ul>
+         <li class='active'><a href='/users/grade'><span>성적조회</span></a></li>
+         <li class='active'><a href='/users/attend'><span>출석조회</span></a></li>
+         <li class='active'><a href='/users/check'><span>개인정보수정</span></a></li>
+      </ul>
+  </li>
+   <li class='active'><a href='/users/page/1'><span>   수강신청   </span></a></li>
+
+   <li><a href='#'><span>   장학,석차조회   </span></a>
+      <ul>
+         <li class='active'><a href='/users/scholarship'><span>장학조회</span></a></li>
+         <li class='active'><a href='/users/race'><span>석차조회</span></a></li>
+      </ul>
+  </li>
+
+   <li><a href='#'><span>   게시판   </span></a>
+      <ul>
+         <li class='active'><a href='/notice/page/1'><span>과목별 공지사항</span></a></li>
+         <li class='active'><a href='/table/page/1'><span>자유게시판</span></a></li>
+         <li class='active'><a href='/evaluate/page/1'><span>평가게시판</span></a></li>
+      </ul>
+  </li>
+</ul>
+</section>
+ <img src="/imgs/miniq.jpg" onclick="location.href='/users/screen'" style="margin-left:auto;margin-right:auto;display:block;width:10%;">
+<text style="font-size:18px;margin-left:1475px; margin-top : -50px;display:block;width:20%;"><%=logid%>(<%=logname%>)님 환영합니다</text>
+<button id="login" style="margin-left:1550px;" onclick="location.href='/users/logout'">로그아웃</button> 
+</td>
+</table>
+<table    align="center" style="width:1700px;height:100px">
+<td>
+<button id="menu"class="snip1535" onclick="location.href='/users/introduce_school'">학교 소개</button>
+<button id="menu"class="snip1535" onclick="location.href='/users/introduce_major'">학부 소개</button>
+<button  id="menu"class="snip1535" onclick="location.href='/users/introduce'">교수 정보</button>
+<button  id="menu"class="snip1535" onclick="location.href='/users/enroll'">등록금납부안내</button>
+<button id="menu"class="snip1535" onclick="location.href='/users/map'">찾아오는 길</button>
+</td>
+</table>
+<table cellspacing="5" align="center" bordercolor="#595959" width="1650" height="1000"  >
+<tr align="center">
+<td colspan = "6">
+  <select id="selectBox"  class="dropbtn" onchange="getIndex()">
+   <option value="1">1학년</option> <option value="2" >2학년</option><option value="3">3학년</option><option value="4">4학년</option>
+	</select>
+
+
+
+</td>
+</tr>
+<tr>
+<td>
+<table cellspacing="5" align="center" border="1" bordercolor="#595959" width="1300" height="900" style="font-size:20px;" >
+ <tr align="center"height="30">
+ <td width="150" ></td> 
+ <td width="300" bgcolor="#808080">월</td>
+ <td width="300" bgcolor="#808080">화</td>
+ <td width="300" bgcolor="#808080">수</td>
+ <td width="300" bgcolor="#808080">목</td>
+ <td width="300" bgcolor="#808080">금</td>
+ </tr>
+
+<tr align="center" onload = "getindex()"height="60">
+ <td bgcolor="#808080">1</td> 
+<td ><button id = "time1" onchange="getindex()"  class="invisiblebutton" ></button></td> 
+<td ><button id = "time2" onchange="getindex()" class="invisiblebutton"  ></button></td> 
+<td ><button id = "time3" onchange="getindex()" class="invisiblebutton"  ></button></td> 
+<td ><button id = "time4" onchange="getindex()" class="invisiblebutton"  ></button></td> 
+<td ><button id = "time5" onchange="getindex()" class="invisiblebutton"  ></button></td> 
+</tr>
+
+<tr align="center"height="60">
+ <td bgcolor="#808080">2</td>
+<td ><button id = "time6" onchange="getindex()"  class="invisiblebutton" ></button></td> 
+<td ><button id = "time7" onchange="getindex()" class="invisiblebutton"  ></button></td> 
+<td ><button id = "time8" onchange="getindex()" class="invisiblebutton"  ></button></td> 
+<td ><button id = "time9" onchange="getindex()" class="invisiblebutton"  ></button></td> 
+<td ><button id = "time10" onchange="getindex()" class="invisiblebutton" ></button></td> 
+</tr>
+
+<tr align="center"height="60">
+ <td bgcolor="#808080">3</td>
+<td ><button id = "time11" onchange="getindex()"  class="invisiblebutton" ></button></td> 
+<td ><button id = "time12" onchange="getindex()" class="invisiblebutton"  ></button></td> 
+<td ><button id = "time13" onchange="getindex()" class="invisiblebutton"  ></button></td> 
+<td ><button id = "time14" onchange="getindex()" class="invisiblebutton" ></button></td> 
+<td ><button id = "time15" onchange="getindex()" class="invisiblebutton"  ></button></td> 
+</tr>
+
+<tr align="center"height="60">
+ <td bgcolor="#808080">4</td>
+<td ><button id = "time16" onchange="getindex()"  class="invisiblebutton" ></button></td> 
+<td ><button id = "time17" onchange="getindex()"  class="invisiblebutton" ></button></td> 
+<td ><button id = "time18" onchange="getindex()"  class="invisiblebutton" ></button></td> 
+<td ><button id = "time19" onchange="getindex()"  class="invisiblebutton" ></button></td> 
+<td ><button id = "time20" onchange="getindex()"  class="invisiblebutton" ></button></td> 
+</tr>
+
+<tr align="center"height="60">
+ <td bgcolor="#808080">5</td>
+<td ><button id = "time21" onchange="getindex()"  class="invisiblebutton" ></button></td> 
+<td ><button id = "time22" onchange="getindex()"  class="invisiblebutton" ></button></td> 
+<td ><button id = "time23" onchange="getindex()"  class="invisiblebutton" ></button></td> 
+<td ><button id = "time24" onchange="getindex()"  class="invisiblebutton" ></button></td> 
+<td ><button id = "time25" onchange="getindex()"  class="invisiblebutton" ></button></td> 
+</tr>
+
+<tr align="center"height="60">
+ <td bgcolor="#808080">6</td>
+<td ><button id = "time26" onchange="getindex()"  class="invisiblebutton" ></button></td> 
+<td ><button id = "time27" onchange="getindex()"  class="invisiblebutton" ></button></td> 
+<td ><button id = "time28" onchange="getindex()"  class="invisiblebutton" ></button></td> 
+<td ><button id = "time29" onchange="getindex()"  class="invisiblebutton" ></button></td> 
+<td ><button id = "time30" onchange="getindex()"  class="invisiblebutton" ></button></td> 
+</tr>
+
+<tr align="center"height="60">
+ <td bgcolor="#808080">7</td>
+<td ><button id = "time31" onchange="getindex()"  class="invisiblebutton" ></button></td> 
+<td ><button id = "time32" onchange="getindex()"  class="invisiblebutton" ></button></td> 
+<td ><button id = "time33" onchange="getindex()"  class="invisiblebutton" ></button></td> 
+<td ><button id = "time34" onchange="getindex()"  class="invisiblebutton" ></button></td> 
+<td ><button id = "time35" onchange="getindex()"  class="invisiblebutton" ></button></td> 
+</tr>
+
+<tr align="center"height="60">
+ <td bgcolor="#808080">8</td>
+<td ><button id = "time36" onchange="getindex()"  class="invisiblebutton" ></button></td> 
+<td ><button id = "time37" onchange="getindex()"  class="invisiblebutton" ></button></td> 
+<td ><button id = "time38" onchange="getindex()"  class="invisiblebutton" ></button></td> 
+<td ><button id = "time39" onchange="getindex()"  class="invisiblebutton" ></button></td> 
+<td ><button id = "time40" onchange="getindex()"  class="invisiblebutton" ></button></td> 
+</tr>
+<table style="height:100px">
+<table>
+
+<table  style="width:800px;height:100px"  align="center" border="1" rowspan="1">
+<tr>
+	<td align="center" width="800" style="font-size: xx-large;">과목별 공지사항</td>
+</tr>
+</table>
+<table  style="width:800px;height:50px"  align="center" border="1" rowspan="1">
+<tr>
+	<td align="center" width="100" style="font-size: medium">교수명</td>
+	<td align="center" width="200" style="font-size: medium">전공</td>
+	<td align="center" width="200" style="font-size: medium">과목명</td>
+	<td align="center" width="300" style="font-size: medium">공지사항</td>
+</tr>
+</table>
+<table  style="width:800px;height:50px"  align="center" border="1" >
+
+	<%if(notice[0] && notice[0].BaseName != "null"){%>
+	<tr>
+	<td align="center" width="100" height="100%" style="font-size: large;" ><%=notice[0].BaseName%></td>
+	<td align="center" width="200" height="100%" style="font-size: large;" ><%=notice[0].SubMajor%></td>
+	<td align="center" width="200" height="100%" style="font-size: large;" ><%=notice[0].SubName%></td>
+	<td align="center" width="300" height="100%" style="font-size: large;" onclick="location.href='/notice/read/<%=notice[0].idx%>'"><a><%=notice[0].title%></a></td>
+
+	<%}%>
+
+
+	<%if(notice[1] && notice[1].BaseName != "null"){%>
+	<tr>
+	<td align="center" width="100" height="100%" style="font-size: large;" ><%=notice[1].BaseName%></td>
+	<td align="center" width="200" height="100%" style="font-size: large;" ><%=notice[1].SubMajor%></td>
+	<td align="center" width="200" height="100%" style="font-size: large;" ><%=notice[1].SubName%></td>
+	<td  align="center" width="300" height="100%" style="font-size: large;" onclick="location.href='/notice/read/<%=notice[1].idx%>'"><a ><%=notice[1].title%></a></td>
+	</tr>
+	<%}%>
+
+
+	<%if(notice[2] && notice[2].BaseName != "null"){%>
+	<tr>
+	<td align="center" width="100" height="100%" style="font-size: large;" ><%=notice[2].BaseName%></td>
+	<td align="center" width="200" height="100%" style="font-size: large;" ><%=notice[2].SubMajor%></td>
+	<td align="center" width="200" height="100%" style="font-size: large;" ><%=notice[2].SubName%></td>
+	<td align="center" width="300" height="100%" style="font-size: large;" onclick="location.href='/notice/read/<%=notice[2].idx%>'"><a><%=notice[2].title%></a></td>
+	</tr>
+	<%}%>
+
+	<%if(notice[3] && notice[3].BaseName != "null"){%>
+	<tr>
+	<td align="center" width="100" height="100%" style="font-size: large;" ><%=notice[3].BaseName%></td>
+	<td align="center" width="200" height="100%" style="font-size: large;" ><%=notice[3].SubMajor%></td>
+	<td align="center" width="200" height="100%" style="font-size: large;" ><%=notice[3].SubName%></td>
+	<td align="center" width="300" height="100%" style="font-size: large;" onclick="location.href='/notice/read/<%=notice[3].idx%>'"><a><%=notice[3].title%></a></td>
+	</tr>
+	<%}%>
+
+	<%if(notice[4] && notice[4].BaseName != "null"){%>
+	<tr>
+	<td align="center" width="100" height="100%" style="font-size: large;" ><%=notice[4].BaseName%></td>
+	<td align="center" width="200" height="100%" style="font-size: large;" ><%=notice[4].SubMajor%></td>
+	<td align="center" width="200" height="100%" style="font-size: large;" ><%=notice[4].SubName%></td>
+	<td align="center" width="300" height="100%" style="font-size: large;" onclick="location.href='/notice/read/<%=notice[4].idx%>'"><a><%=notice[4].title%></a></td>
+	</tr>
+	<%}%>
+</table>
+
+
+<table  style="width:800px;height:100px" border="1">
+	<table  style="width:1600px;height:50px">
+	<tr align="center"height="100" width="100%">	
+	<td align="center" width="1600" style="font-size: xx-large;">출석현황</td>
+	</tr>
+	</table>
+	<div style="width:800px; height:600px; float:left;">
+	
+	<table id="tbl1" border="1" style="width:800px;height:50px">
+	<tr align="center"height="50">
+	<td width="200" style="font-size: large;" bgcolor="#808080">학번</td>
+	<td width="200" bgcolor="#808080"style="font-size: large;">수강과목</td>
+	<td width="100" bgcolor="#808080"style="font-size: large;">출석일수</td>
+	<% for(i=0; i <rows1.length; i++) { %>
+	<tr align="center"height="75">
+ 	<td width="200" bgcolor="#ffffff"><%=rows1[i].AttendId%></td>
+ 	<td width="200" bgcolor="#ffffff"><%=rows1[i].AttendSub%></td>
+ 	<td width="200" bgcolor="#ffffff"><%=rows1[i].AttendNum%>/15</td>
+	</tr>
+	<% } %>
+	</tr>
+	</table>
+	</div>
+	<div style="width:800px; height:650px;  float:left;">
+	<table  id="tbl2">
+   	 <div id="barchart_div"></div>
+
+   	 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   	 <script type="text/javascript">
+
+     	 google.charts.load('current', {'packages':['corechart']});
+    	  google.charts.setOnLoadCallback(drawChart);
+
+     	 function drawChart() {
+
+      	  var data = new google.visualization.DataTable();
+      	  data.addColumn('string', 'Topping');
+      	  data.addColumn('number', '출석일수');
+		<% for(i=0; i <rows1.length; i++) { %>
+	 	 data.addRow(['<%=rows1[i].AttendSub%>', <%=rows1[i].AttendNum%>]);
+      		<% } %>
+        
+       		 var bar_options = {'title':'',
+                     	  'width':800,
+                     	  'height':600,
+	       	    'bar' : {groupWidth: '75%'},
+	       	    'hAxis' : { maxValue : 15,
+			ticks: [0, 3, 6, 9, 12, 15] }
+			};
+
+      		  var bar_chart = new google.visualization.BarChart(document.getElementById('barchart_div'));
+       		 bar_chart.draw(data, bar_options);
+     		 }
+    	</script>
+    	</table>	
+	</div>
+	
+</table>
+
+
+
+
+
+
+
+
+</table>
+
+
+</td>
+</tr>
+
+</table>
+
+  </body>
+
+
+</html>
+
+
