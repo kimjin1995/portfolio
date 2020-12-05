@@ -1,35 +1,4 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
  
-@kimjin1995 
-team-care-kw
-/
--
-0
-0
-0
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
--/code
-@kimjin1995
-kimjin1995 Update and rename README.md to code
-Latest commit a2b485b on 7 Apr
- History
- 1 contributor
-91 lines (69 sloc)  3.86 KB
-  
 # fashion_pose.py : MPII를 사용한 신체부위 검출
 import cv2
 
